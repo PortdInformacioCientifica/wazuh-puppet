@@ -54,6 +54,17 @@ class wazuh::repo (
       }
       else {
         case $::os[name] {
+          'Scientific': {
+            if ( $::operatingsystemrelease =~ /^5.*/ ) {
+              $repotype = 'CentOS 5'
+              $baseurl  = 'https://packages.wazuh.com/yum/el/$releasever/$basearch'
+              $gpgkey   = 'https://packages.wazuh.com/key/RPM-GPG-KEY-OSSEC-RHEL5'
+            } else {
+              $repotype = 'CentOS > 5'
+              $baseurl  = 'https://packages.wazuh.com/yum/el/$releasever/$basearch'
+              $gpgkey   = 'https://packages.wazuh.com/key/GPG-KEY-WAZUH'
+            }
+          }
           'CentOS': {
             if ( $::operatingsystemrelease =~ /^5.*/ ) {
               $repotype = 'CentOS 5'
