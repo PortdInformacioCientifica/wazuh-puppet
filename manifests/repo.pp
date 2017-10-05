@@ -56,7 +56,7 @@ class wazuh::repo (
         case $::os[name] {
           'Scientific': {
               $repotype = 'CentOS'
-              $baseurl  = "https://packages.wazuh.com/yum/el/${$facts['os']['release']['major]}/\$basearch"
+              $baseurl  = "https://packages.wazuh.com/yum/el/${$facts['os']['release']['major']}/\$basearch"
               $gpgkey   = 'https://packages.wazuh.com/key/GPG-KEY-WAZUH'
           }
           'CentOS': {
